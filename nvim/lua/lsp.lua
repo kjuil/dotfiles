@@ -36,6 +36,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(event)
         vim.keymap.set("n", "grd", "<CMD>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition" })
         vim.keymap.set("n", "grD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { desc = "Goto Declaration" })
+        vim.keymap.set("n", "<leader>cf", "<CMD>lua vim.lsp.buf.format()<CR>", { desc = "Code format" })
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.supports_method "textDocument/foldingRange" then
@@ -44,9 +45,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-            vim.keymap.set("n", "<leader>lih", function()
+            vim.keymap.set("n", "<leader>ih", function()
                 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, { buffer = event.buf, desc = "LSP Inlay Hints" })
+            end, { buffer = event.buf, desc = "Inlay Hints" })
         end
     end,
 })

@@ -19,7 +19,6 @@ local config = {
         ["<CR>"] = { disable_command_mode = true },
     },
     options = {
-        touch_regex = "[%w(%[{]",
         pair_spaces = false,
         auto_indent = true,
         disable_command_mode = false,

@@ -15,5 +15,3 @@ vim.keymap.set("i", "<C-k>", "<Up>", opts)
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 
-vim.keymap.set('n', '\\', '<CMD>:sp<CR>', { desc = 'Split window horizontally' })
-vim.keymap.set('n', '|', '<CMD>:vsp<CR>', { desc = 'Split window vertically' })

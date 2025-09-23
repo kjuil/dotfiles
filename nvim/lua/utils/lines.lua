@@ -87,10 +87,6 @@ local function filetype()
     return string.format(" %s ", vim.bo.filetype):lower()
 end
 
-local function lineinfo()
-    return " %P %l:%c "
-end
-
 function PickBuffer(buf_id)
     local window = vim.api.nvim_get_current_win()
     vim.api.nvim_win_set_buf(window, buf_id)
@@ -117,17 +113,12 @@ end
 Statusline = {}
 
 Statusline.active = function()
-    return table.concat {
-        " ",
-        mode(),
-        " ",
-        --filepath(),
-        filename(),
-        diagnostic(),
-        "%=",
-        filetype(),
-        lineinfo(),
-    }
+    return " |"..mode().."| "..
+        filename()..
+        diagnostic()..
+        "%="..
+        filetype()..
+        " %P %l:%c "
 end
 
 Statusline.inactive = function()
