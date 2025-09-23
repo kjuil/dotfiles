@@ -15,5 +15,3 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 
-vim.keymap.set('n', '\\', '<CMD>:sp<CR>', opts)
-vim.keymap.set('n', '|', '<CMD>:vsp<CR>', opts)
