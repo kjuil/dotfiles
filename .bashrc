@@ -17,6 +17,10 @@ alias cp="cp -i"
 alias clr="clear"
 alias cls="clear"
 
+# nvim
+alias vi="nvim"
+alias vim="nvim"
+
 # git
 alias ga="git add"
 alias gcm="git commit -m"
@@ -34,7 +38,6 @@ alias lg="lazygit"
 alias tn='tmux new-session -s main'
 alias ta='tmux attach'
 alias tls='tmux ls'
-alias tmv='tmux rename-session -t'
 alias tk='tmux kill-session -t'
 
 # openlist
