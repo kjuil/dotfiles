@@ -5,20 +5,19 @@
   "spacing" : 4,
   "margin-bottom": -10,
   "modules-left": [
-    "niri/windows",
-    "cpu"
+    "niri/workspace",
+    "wlr/taskbar",
+    "tray"
   ],
 
-  "modules-center": ["niri/workspaces"],
+  "modules-center": ["clock"],
 
   "modules-right": [
-    "tray",
     "bluetooth",
     "network",
     "pulseaudio", 
     "backlight",
     "battery",
-    "clock"
   ],
 
   "niri/workspaces": {
