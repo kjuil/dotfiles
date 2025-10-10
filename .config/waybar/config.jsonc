@@ -10,7 +10,7 @@
     "tray"
   ],
 
-  "modules-center": ["clock"],
+  "modules-center": ["clock","idle_inhibitor"],
 
   "modules-right": [
     "bluetooth",
@@ -28,6 +28,35 @@
     }
   },
 
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 20,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+  }
+
+  "tray": {
+    "icon-size": 15,
+    "spacing": 10
+  },
+
+  "clock": {
+    "format": "{%A,%B %d :%H:%M}",
+    "timezone": "Asia/ShangHai",
+    "tooltip": false,
+    "interval": 1
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "",
+        "deactivated": ""
+    }
+  }
+
   "bluetooth": {
     "format": "󰂲",
     "format-on": "{icon}",
@@ -42,21 +71,13 @@
     "tooltip-format-connected":"{device_enumerate}"
   },
 
-  "clock": {
-    "format": "{%A,%B %d :%H:%M}",
-    "timezone": "Asia/ShangHai",
-    "tooltip": false,
-    "interval": 1
-  },
-
   "network": {
     "format-wifi": "󰤢",
     "format-ethernet": "󰈀 ",
     "format-disconnected": "󰤠 ",
     "interval": 5,
     "tooltip-format": "{essid} ({signalStrength}%)",
-    "on-click": "nm-connection-editor"
-
+    "on-click": "alacritty -e 'nmtui'"
  },
   
   "backlight": {
