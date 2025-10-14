@@ -1,12 +1,18 @@
-### Env
+### Completion
+if [ -f /etc/bash_completion ]; then source /etc/bash_completion; fi
+
+shopt -s histappend
+export HISTSIZE=1000
+export HISTFILESIZE=2000
+export HISTCONTROL=ignoredups:erasedups
+
+
+
+### Environment
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
-
-export HISTSIZE=10000
-export HISTFILESIZE=10000
-export HISTCONTROL=ignoredups
 
 ### Alias
 alias ll="ls -lhF"
@@ -34,8 +40,6 @@ alias tls="tmux ls"
 alias tmv="tmux rename-session -t"
 alias tk="tmux kill-session -t"
 
-# openlist
-# alias ols="cd ~/.config/openlist && openlist server &"
 
 
 ### Command Prompt
