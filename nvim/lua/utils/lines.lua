@@ -102,7 +102,7 @@ function Set_tabline()
             if f_name == "" then f_name = "[No Name]" end
 
             local s = vim.api.nvim_get_current_buf() == buf
-            tabline = tabline .. "%#TabLine" .. (s and "Sel" or "") .. "#" ..
+            tabline = tabline .. "%#TabLine" .. (s and "" or "Fill") .. "#" ..
                 "┃   " .. "%" .. buf .. "@v:lua.PickBuffer@" .. f_name .. (s and edited or " ") .. "  %X✗%X" .. " "
         end
     end
