@@ -59,17 +59,17 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 -- }}}
 
 -- Autocmds {{{
-vim.api.nvim_create_autocmd('TextYankPost', {
-    desc = 'Highlight Copying Text',
-    group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+    desc = "Highlight Copying Text",
+    group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
     callback = function()
         vim.hl.on_yank({ timeout = 500 })
     end,
 })
 
-vim.api.nvim_create_autocmd('BufWritePre', {
+vim.api.nvim_create_autocmd("BufWritePre", {
     desc = "Format On Save",
-    pattern = '*',
+    pattern = "*",
     callback = function()
         vim.lsp.buf.format()
     end,
@@ -92,9 +92,7 @@ vim.lsp.config("lua_ls", {
         ".git",
     },
     settings = {
-        Lua = {
-            diagnostics = { globals = { "vim" } },
-        },
+        Lua = { diagnostics = { globals = { "vim" } }, },
     },
 })
 
@@ -134,9 +132,7 @@ vim.lsp.config("basedpyright", {
         ".git",
     },
     settings = {
-        basedpyright = {
-            analysis = { typeCheckingMode = "off" },
-        },
+        basedpyright = { analysis = { typeCheckingMode = "off" }, },
     },
 })
 
@@ -218,11 +214,12 @@ local cfg = {
     transparent = false,
     ending_tildes = false,
     code_style = {
-        comments = 'italic',
-        keywords = 'none',
-        functions = 'none',
-        strings = 'none',
-        variables = 'none'
+        comments = "none",
+        -- comments = "italic",
+        keywords = "none",
+        functions = "none",
+        strings = "none",
+        variables = "none"
     },
 }
 
@@ -378,18 +375,18 @@ local highlights = {
     ["@keyword.operator"] = { fg = c.purple, fmt = cfg.code_style.keywords },
     ["@keyword.repeat"] = { fg = c.purple, fmt = cfg.code_style.keywords },
     ["@label"] = { fg = c.red },
-    ["@markup.emphasis"] = { fg = c.fg, fmt = 'italic' },
+    ["@markup.emphasis"] = { fg = c.fg, fmt = "italic" },
     ["@markup.environment"] = { fg = c.fg },
     ["@markup.environment.name"] = { fg = c.fg },
-    ["@markup.heading"] = { fg = c.orange, fmt = 'bold' },
+    ["@markup.heading"] = { fg = c.orange, fmt = "bold" },
     ["@markup.link"] = { fg = c.blue },
-    ["@markup.link.url"] = { fg = c.cyan, fmt = 'underline' },
+    ["@markup.link.url"] = { fg = c.cyan, fmt = "underline" },
     ["@markup.list"] = { fg = c.red },
     ["@markup.math"] = { fg = c.fg },
     ["@markup.raw"] = { fg = c.green },
-    ["@markup.strike"] = { fg = c.fg, fmt = 'strikethrough' },
-    ["@markup.strong"] = { fg = c.fg, fmt = 'bold' },
-    ["@markup.underline"] = { fg = c.fg, fmt = 'underline' },
+    ["@markup.strike"] = { fg = c.fg, fmt = "strikethrough" },
+    ["@markup.strong"] = { fg = c.fg, fmt = "bold" },
+    ["@markup.underline"] = { fg = c.fg, fmt = "underline" },
     ["@module"] = { fg = c.yellow },
     ["@none"] = { fg = c.fg },
     ["@number"] = { fg = c.orange },
@@ -440,13 +437,13 @@ local highlights = {
     ["@punctuation.special"] = { fg = c.red },
     ["@repeat"] = { fg = c.purple, fmt = cfg.code_style.keywords },
     ["@string.regex"] = { fg = c.orange, fmt = cfg.code_style.strings },
-    ["@text.strong"] = { fg = c.fg, fmt = 'bold' },
-    ["@text.emphasis"] = { fg = c.fg, fmt = 'italic' },
-    ["@text.underline"] = { fg = c.fg, fmt = 'underline' },
-    ["@text.strike"] = { fg = c.fg, fmt = 'strikethrough' },
-    ["@text.title"] = { fg = c.orange, fmt = 'bold' },
+    ["@text.strong"] = { fg = c.fg, fmt = "bold" },
+    ["@text.emphasis"] = { fg = c.fg, fmt = "italic" },
+    ["@text.underline"] = { fg = c.fg, fmt = "underline" },
+    ["@text.strike"] = { fg = c.fg, fmt = "strikethrough" },
+    ["@text.title"] = { fg = c.orange, fmt = "bold" },
     ["@text.literal"] = { fg = c.green },
-    ["@text.uri"] = { fg = c.cyan, fmt = 'underline' },
+    ["@text.uri"] = { fg = c.cyan, fmt = "underline" },
     ["@text.todo"] = { fg = c.red, fmt = cfg.code_style.comments },
     ["@text.todo.unchecked"] = { fg = c.red, fmt = cfg.code_style.comments },
     ["@text.todo.checked"] = { fg = c.green, fmt = cfg.code_style.comments },
