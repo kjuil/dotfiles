@@ -1,4 +1,4 @@
----------- Options ----------
+-- Options {{{
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.tabstop = 4
@@ -41,7 +41,9 @@ end)
 vim.o.inccommand = "split"
 vim.o.winborder = "rounded"
 
----------- Keymaps ----------
+-- }}}
+
+-- Keymaps {{{
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -54,7 +56,9 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 
----------- Autocmds ----------
+-- }}}
+
+-- Autocmds {{{
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight Copying Text',
     group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
@@ -71,7 +75,9 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     end,
 })
 
----------- Lspconfig ----------
+---}}}
+
+-- Lspconfig {{{
 vim.lsp.config("lua_ls", {
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
@@ -179,7 +185,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
----------- Colorscheme ----------
+-- }}}
+
+-- Colorscheme {{{
 local c = {
     black = "#151820",
     bg0 = "#242b38",
@@ -489,7 +497,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end,
 })
 
----------- Statusline ----------
+-- }}}
+
+-- Statusline {{{
 local function modes()
     local modes_map = {
         ["n"]     = { text = "NORMAL", color = "ModeNormal" },
@@ -606,7 +616,9 @@ vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
     end
 })
 
----------- Tabline ----------
+-- }}}
+
+-- Tabline {{{
 function PickBuffer(buf)
     local window = vim.api.nvim_get_current_win()
     vim.api.nvim_win_set_buf(window, buf)
@@ -643,7 +655,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
 })
 
----------- Netrw ----------
+-- }}}
+
+-- Netrw {{{
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 vim.g.netrw_liststyle = 3
@@ -662,7 +676,9 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
----------- Folding ----------
+-- }}}
+
+-- Folding {{{
 vim.o.foldcolumn = "0"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
@@ -717,7 +733,9 @@ vim.opt.foldtext = "v:lua.Foldtext()"
 
 vim.keymap.set("n", "<CR>", "za", { desc = "Toggle fold under cursor" })
 
----------- Fterm ----------
+-- }}}
+
+-- Fterm {{{
 local window = nil
 local buffer = nil
 local window_config = {
@@ -771,7 +789,9 @@ end
 
 vim.keymap.set({ "n", "t" }, "<C-t>", function() Toggle_term() end, { desc = "FloatTerm" })
 
----------- Autopairs ----------
+-- }}}
+
+-- Autopairs {{{
 local config = {
     keys = {
         ["("] = { escape = false, close = true, pair = "()" },
@@ -877,4 +897,8 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
     end,
 })
 
-----------  ----------
+-- }}}
+
+-- {{{
+
+-- }}}
