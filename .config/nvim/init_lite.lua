@@ -652,6 +652,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
         vim.o.tabline = "%!v:lua.SetTab()"
         vim.o.showtabline = 2
+        vim.keymap.set("n", "<leader>bn", "<CMD>bnext<CR>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>bp", "<CMD>bprev<CR>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>bd", "<CMD>bdelete<CR>", { noremap = true, silent = true })
     end
 })
 
