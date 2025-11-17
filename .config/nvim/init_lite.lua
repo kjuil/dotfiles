@@ -55,10 +55,11 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 
 ---------- Autocmds ----------
-vim.api.nvim_create_autocmd("VimEnter", {
-    once = true,
+vim.api.nvim_create_autocmd('TextYankPost', {
+    desc = 'Highlight Copying Text',
+    group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
     callback = function()
-        -- vim.cmd("colorscheme onedark")
+        vim.hl.on_yank({ timeout = 500 })
     end,
 })
 
@@ -67,14 +68,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     pattern = '*',
     callback = function()
         vim.lsp.buf.format()
-    end,
-})
-
-vim.api.nvim_create_autocmd('TextYankPost', {
-    desc = 'Highlight Copying Text',
-    group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
-    callback = function()
-        vim.hl.on_yank({ timeout = 500 })
     end,
 })
 
@@ -480,15 +473,22 @@ local highlights = {
     ["@lsp.typemod.variable.injected"] = { fg = c.fg, fmt = cfg.code_style.variables },
     ["@lsp.typemod.variable.static"] = { fg = c.orange, fmt = cfg.code_style.constants },
 }
-vim.cmd("hi clear")
-if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
-for group, settings in pairs(highlights) do
-    vim.api.nvim_command(string.format("highlight %s guifg=%s guibg=%s guisp=%s gui=%s", group,
-        settings.fg or "none",
-        settings.bg or "none",
-        settings.sp or "none",
-        settings.fmt or "none"))
-end
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    once = true,
+    callback = function()
+        vim.cmd("hi clear")
+        if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
+        for group, settings in pairs(highlights) do
+            vim.api.nvim_command(string.format("highlight %s guifg=%s guibg=%s guisp=%s gui=%s", group,
+                settings.fg or "none",
+                settings.bg or "none",
+                settings.sp or "none",
+                settings.fmt or "none"))
+        end
+    end,
+})
+
 ---------- Statusline ----------
 local function modes()
     local modes_map = {
@@ -771,22 +771,6 @@ end
 
 vim.keymap.set({ "n", "t" }, "<C-t>", function() Toggle_term() end, { desc = "FloatTerm" })
 
--- local opts = { noremap = true, silent = true }
---
--- vim.keymap.set("n", "<C-t>", "<CMD>split term://bash<CR>", opts)
--- vim.keymap.set("t", "<C-t>", "<C-\\><C-n>:bdelete! %<CR>", opts)
--- vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", opts)
---
--- vim.api.nvim_create_autocmd("TermOpen", {
---     group = vim.api.nvim_create_augroup("Terminal", { clear = true }),
---     pattern = "*",
---     callback = function()
---         -- vim.o.cursorline = false
---         -- vim.cmd [[resize 8]]
---         vim.cmd [[normal i]]
---     end
--- })
-
 ---------- Autopairs ----------
 local config = {
     keys = {
@@ -893,4 +877,4 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
     end,
 })
 
----------- > ----------
+----------  ----------
