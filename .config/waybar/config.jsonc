@@ -7,13 +7,13 @@
   "modules-left": [
     "niri/workspace",
     "wlr/taskbar",
-    "niri/language",
-    "tray"
+    "niri/language"
   ],
 
   "modules-center": ["clock","idle_inhibitor"],
 
   "modules-right": [
+    "tray",
     "bluetooth",
     "network",
     "pulseaudio", 
@@ -35,14 +35,14 @@
     "icon-theme": "Numix-Circle",
     "tooltip-format": "{title}",
     "on-click": "activate",
-    "on-click-middle": "close",
-  }
+    "on-click-middle": "close"
+  },
 
   "niri/language": {
 	  "format": "Lang: {long}",
 	  "format-en": "AMERICA, HELL YEAH!",
 	  "format-tr": "As bayrakları"
-  }
+  },
 
   "tray": {
     "icon-size": 15,
