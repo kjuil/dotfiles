@@ -1,0 +1,22 @@
+[keyboard]
+bindings = [
+    { key = "C", mods = "Super", action = "Copy" },
+    { key = "V", mods = "Super", action = "Paste" },
+    { key = "F", mods = "Super", action = "SearchForward" },
+    { key = "N", mods = "Super", action = "CreateNewWindow" },
+    { key = "Minus", mods = "Super", action = "DecreaseFontSize" },
+    { key = "Equals", mods = "Super", action = "IncreaseFontSize" },
+    { key = "Return", mods = "Super", action = "ToggleSimpleFullscreen" },
+    { key = "H", mods = "Super", action = "Hide" },
+    { key = "Key0", mods = "Super", action = "ResetFontSize" },
+    { key = "Key1", mods = "Super", action = "SelectTab1" },
+    { key = "Key2", mods = "Super", action = "SelectTab2" },
+    { key = "Key3", mods = "Super", action = "SelectTab3" },
+    { key = "Key4", mods = "Super", action = "SelectTab4" },
+    { key = "Key5", mods = "Super", action = "SelectTab5" },
+    { key = "Key6", mods = "Super", action = "SelectTab6" },
+    { key = "Key7", mods = "Super", action = "SelectTab7" },
+    { key = "Key8", mods = "Super", action = "SelectTab8" },
+    { key = "Key9", mods = "Super", action = "SelectTab9" },
+]
+
