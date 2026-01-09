@@ -1,11 +1,8 @@
-return {
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        keys = {
-            { "<leader>?", "<CMD>WhichKey<CR>", desc = "Keymaps", },
-        },
-        opts = {
+vim.api.nvim_create_autocmd("UIEnter", {
+    group = vim.api.nvim_create_augroup("WhichkeySetup", { clear = true }),
+    once = true,
+    callback = function()
+        require("which-key").setup({
             preset = "helix",
             spec = {
                 {
@@ -21,6 +18,9 @@ return {
                     { "g",         group = "Goto" },
                 },
             },
-        },
-    },
-}
+        })
+
+        vim.keymap.set("n", "<leader>?", function() require("which-key").show({ global = false }) end,
+            { desc = "Local Keymaps" })
+    end,
+})

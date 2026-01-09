@@ -1,5 +1,3 @@
--- vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
-
 -- Options {{{
 vim.o.number = true
 vim.o.relativenumber = true
@@ -19,6 +17,7 @@ vim.o.list = true
 vim.o.listchars = "space:·,tab:-->"
 vim.o.wrap = false
 vim.o.cursorline = true
+vim.o.cursorlineopt = "number"
 vim.o.signcolumn = "yes"
 vim.o.colorcolumn = "100"
 vim.o.showmode = false
@@ -45,14 +44,28 @@ end)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local opts = { noremap = true, silent = true }
+vim.keymap.set("i", "jk", "<ESC>", { desc = "Escape insert mode" })
+vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Move left" })
+vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move right" })
+vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Move down" })
+vim.keymap.set("i", "<C-k>", "<Up>", { desc = "Move up" })
+vim.keymap.set("i", "<C-BS>", "<C-w>", { desc = "Delete a word" })
 
-vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
-vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
-vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
-vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+vim.keymap.set("n", ";", ":", { desc = "Enter command mode" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Goto window left" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Goto window right" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Goto window down" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Goto window up" })
 
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
+vim.keymap.set("n", "<Esc>", "<CMD>nohlsearch<CR>", { desc = "Clear highlights" })
+vim.keymap.set("n", "<C-s>", "<CMD>w<CR>", { desc = "Save file" })
+vim.keymap.set("n", "<C-a>", "gg0vG$", { desc = "Select all" })
+vim.keymap.set("n", "<CR>", "za", { desc = "Toggle fold under cursor" })
+
+vim.keymap.set("n", "<C-t>", "<CMD>" .. math.floor(vim.o.lines * 0.3) .. "split | terminal<CR>",
+    { desc = "Termianl toggle" })
+vim.keymap.set("t", "<C-t>", "<C-\\><C-N><CMD>bdelete!<CR>", { desc = "Termianl toggle" })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
 
 -- }}}
 
@@ -60,7 +73,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 vim.api.nvim_create_autocmd("VimEnter", {
     once = true,
     callback = function()
-        -- vim.cmd("colorscheme sorbet")
+        vim.cmd("colorscheme sorbet")
     end,
 })
 
@@ -84,7 +97,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- Lspconfig {{{
 
-vim.lsp.enable({ "lua_ls" })
+vim.lsp.enable({ "lua_ls", "clangd", "basedpyright" })
 
 vim.lsp.config("lua_ls", {
     cmd = { "lua-language-server" },
@@ -152,7 +165,7 @@ vim.diagnostic.config({
     severity_sort = true,
     float = { border = "rounded", source = "if_many" },
     underline = { severity = vim.diagnostic.severity.ERROR },
-    virtual_text = { spacing = 4, source = "if_many", prefix = "●", },
+    virtual_text = { spacing = 4, source = "if_many", prefix = "●" },
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = " ",
@@ -169,9 +182,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "grd", vim.lsp.buf.definition, { desc = "Goto Definition" })
         vim.keymap.set("n", "grD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
         vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Lsp Format" })
-        vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Diagnostic List" })
-        vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Diagnostic Next" })
-        vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Diagnostic Prev" })
+        vim.keymap.set("n", "<leader>lds", vim.diagnostic.setloclist, { desc = "Lsp diagnostic show" })
+        vim.keymap.set("n", "<leader>ldn", vim.diagnostic.goto_next, { desc = "Lsp diagnostic next" })
+        vim.keymap.set("n", "<leader>ldp", vim.diagnostic.goto_prev, { desc = "Lsp diagnostic prev" })
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client:supports_method "textDocument/foldingRange" then
@@ -180,9 +193,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-            vim.keymap.set("n", "<leader>li", function()
-                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, { buffer = event.buf, desc = "Lsp Inlay Hints" })
+            vim.keymap.set("n", "<leader>li",
+                function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end,
+                { buffer = event.buf, desc = "Lsp Inlay Hints" })
         end
     end,
 })
@@ -592,3 +605,5 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
 })
 
 -- }}}
+
+-- vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0

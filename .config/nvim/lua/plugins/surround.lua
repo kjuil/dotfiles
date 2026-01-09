@@ -1,7 +1,7 @@
-return {
-    {
-        "kylechui/nvim-surround",
-        keys = { "ys", "cs", "ds", },
-        config = true,
-    },
-}
+vim.api.nvim_create_autocmd("UIEnter", {
+    group = vim.api.nvim_create_augroup("SurroundSetup", { clear = true }),
+    once = true,
+    callback = function()
+        require("nvim-surround").setup({})
+    end,
+})

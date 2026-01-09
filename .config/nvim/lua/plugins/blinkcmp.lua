@@ -1,11 +1,21 @@
-return {
-    {
-        "saghen/blink.cmp",
-        version = "*",
-        dependencies = { "rafamadriz/friendly-snippets" },
-        event = { "InsertEnter", "CmdlineEnter" },
-        opts = {
-            keymap = { preset = "super-tab", },
+vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
+    group = vim.api.nvim_create_augroup("BlinkCmpSetup", { clear = true }),
+    once = true,
+    callback = function()
+        require("blink.cmp").setup({
+            keymap = {
+                preset = "super-tab",
+                ["<C-k>"] = {},
+            },
+            completion = {
+                menu = { border = "rounded", auto_show = true, scrollbar = false },
+                documentation = {
+                    auto_show = true,
+                    auto_show_delay_ms = 500,
+                    window = { border = "rounded", scrollbar = false },
+                },
+                ghost_text = { enabled = true },
+            },
             cmdline = {
                 completion = {
                     list = {
@@ -14,22 +24,14 @@ return {
                             auto_insert = true,
                         }
                     },
-                    menu = { auto_show = true, },
+                    menu = { auto_show = true },
                 },
-            },
-            completion = {
-                menu = { border = "rounded", auto_show = true, },
-                documentation = {
-                    auto_show = true,
-                    auto_show_delay_ms = 500,
-                    window = { border = "rounded", },
-                },
-                ghost_text = { enabled = false },
             },
             signature = { enabled = true },
             sources = {
                 default = { "path", "snippets", "buffer", "lsp" },
             },
-        },
-    },
-}
+            fuzzy = { implementation = "lua" },
+        })
+    end
+})
