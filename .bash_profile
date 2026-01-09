@@ -1,8 +1,3 @@
-# if [[ -f ~/.bashrc ]]; then
-#     source ~/.bashrc
-# fi
-
-if [[ -f ~/.config/bash/bashrc ]]; then
-    source ~/.config/bash/bashrc
+if [[ -f ~/.bashrc ]]; then
+    source ~/.bashrc
 fi
-
