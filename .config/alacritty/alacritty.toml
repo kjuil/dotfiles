@@ -1,5 +1,8 @@
 [general]
-import = [ "./colors.toml", "./keymaps.toml" ]
+import = [ 
+    "./colors.toml",
+    "./keymaps.toml"
+]
 live_config_reload = true
 
 [window]
