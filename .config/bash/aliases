@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# basic
+alias ll="ls -lhF"
+alias la="ls -alhF"
+alias mv="mv -i"
+alias cp="cp -i"
+alias c="clear"
+alias vi="nvim"
+alias vim="nvim"
+
+# git
+alias ga="git add"
+alias gcm="git commit -m"
+alias gb="git branch"
+alias gco="git checkout"
+alias gs="git status"
+alias gdiff="git diff"
+alias gpull="git pull"
+alias gpush="git push"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias lg="lazygit"
+
+# tmux
+alias tn="tmux new-session -s main"
+alias ta="tmux attach"
+alias tls="tmux ls"
+alias trs="tmux rename-session -t"
+alias tk="tmux kill-session -t"
+
+alias chfs="~/.config/chfs/chfs -file ~/.config/chfs/chfs.ini"
+
+
