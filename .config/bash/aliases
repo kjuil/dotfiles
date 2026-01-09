@@ -28,6 +28,3 @@ alias tls="tmux ls"
 alias trs="tmux rename-session -t"
 alias tk="tmux kill-session -t"
 
-alias chfs="~/.config/chfs/chfs -file ~/.config/chfs/chfs.ini"
-
-
