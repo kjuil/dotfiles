@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd("UIEnter", {
+vim.api.nvim_create_autocmd("VimEnter", {
     group = vim.api.nvim_create_augroup("WhichkeySetup", { clear = true }),
     once = true,
     callback = function()

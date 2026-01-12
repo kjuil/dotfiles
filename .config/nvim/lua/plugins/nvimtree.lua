@@ -7,20 +7,21 @@ require("nvim-tree").setup({
         update_root = false,
     },
     sort = { sorter = "case_sensitive", },
-    filters = { dotfiles = true, },
-    view = {
-        width = 30,
-        preserve_window_proportions = true,
-    },
+    view = { width = 30, preserve_window_proportions = true },
     renderer = {
         group_empty = true,
-        highlight_git = true,
+        highlight_git = "name",
         indent_markers = { enable = true },
         icons = { git_placement = "after" }
     },
+    git = { enable = true },
     diagnostics = { enable = true },
     modified = { enable = true },
-
+    filters = {
+        enable = true,
+        dotfiles = true,
+        git_ignored = false
+    },
 })
 
 vim.keymap.set("n", "<leader>e", "<CMD>NvimTreeToggle<CR>", { desc = "Explore" })

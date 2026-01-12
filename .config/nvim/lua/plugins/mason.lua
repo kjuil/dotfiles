@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd("UIEnter", {
+vim.api.nvim_create_autocmd("VimEnter", {
     group = vim.api.nvim_create_augroup("MasonSetup", { clear = true }),
     once = true,
     callback = function()
@@ -12,6 +12,6 @@ vim.api.nvim_create_autocmd("UIEnter", {
                 },
             },
         })
-        vim.keymap.set("n", "<leader>lm", "<CMD>Mason<CR>", { desc = "Lsp Manager Mason" })
+        vim.keymap.set("n", "<leader>lm", "<CMD>Mason<CR>", { desc = "Mason" })
     end,
 })

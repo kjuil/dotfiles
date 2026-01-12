@@ -3,17 +3,18 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "markdown",
     once = true,
     callback = function()
+        vim.lsp.enable("marksman")
         require("render-markdown").setup({
             file_types = { "markdown", "quarto", "help" },
             heading = {
                 icons = { " 󰼏 ", " 󰎨 ", " 󰼑 ", " 󰎲 ", " 󰼓 ", " 󰎴 " },
                 width = "block",
-                min_width = 80,
+                min_width = 100,
                 border = true,
             },
             code = {
                 width = "block",
-                min_width = 80,
+                min_width = 100,
                 border = "thin",
                 left_pad = 1,
                 right_pad = 1,
@@ -23,7 +24,7 @@ vim.api.nvim_create_autocmd("FileType", {
             },
             sign = { enabled = false },
             pipe_table = { preset = "round" },
-            dash = { width = 80 },
+            dash = { width = 100 },
             anti_conceal = { disabled_modes = { "n" }, },
             win_options = { concealcursor = { rendered = "nvc" } },
             completions = { blink = { enabled = true }, lsp = { enabled = true } },
