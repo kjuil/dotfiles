@@ -17,7 +17,7 @@ input {
             layout "us"
             // options "compose:ralt,ctrl:nocaps"
         }
-        numlock
+        // numlock
     }
 
     touchpad {
@@ -121,7 +121,7 @@ layout {
 // spawn-at-startup "waybar"
 // spawn-at-startup "mako"
 spawn-at-startup "fcitx5"
-spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "qs" "-c" "NoctaliaShell"
 
 hotkey-overlay {
     skip-at-startup
