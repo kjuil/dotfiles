@@ -1,15 +1,16 @@
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight Copying Text",
+    desc = "Highlight copying text",
     group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
     callback = function()
-        vim.hl.on_yank({ timeout = 500 })
+        vim.hl.on_yank({ timeout = 300 })
     end,
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-    desc = "Format On Save",
-    pattern = "*",
+    desc = "Format on save",
     callback = function()
-        vim.lsp.buf.format()
+        if vim.lsp.buf_is_attached then
+            vim.lsp.buf.format()
+        end
     end,
 })
