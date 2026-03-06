@@ -3,6 +3,7 @@ environment {
     LANG "en_US.UTF-8"
     LC_MESSAGES "zh_CN.UTF-8"
     QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "qt6ct"
     XMODIFIERS "@im=fcitx"
     QT_IM_MODULE "fxitx"
     QT_IM_MODULES "wayland;fxitx"
@@ -17,7 +18,7 @@ input {
             layout "us"
             // options "compose:ralt,ctrl:nocaps"
         }
-        numlock
+        // numlock
     }
 
     touchpad {
@@ -123,9 +124,7 @@ layout {
 spawn-at-startup "fcitx5"
 spawn-at-startup "qs" "-c" "noctalia-shell"
 
-hotkey-overlay {
-    skip-at-startup
-}
+hotkey-overlay { skip-at-startup }
 
 prefer-no-csd
 

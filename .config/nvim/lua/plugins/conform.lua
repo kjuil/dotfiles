@@ -4,7 +4,7 @@ return {
         event = { "BufWritePre" },
         cmd = { "ConformInfo" },
         keys = {
-            { "<leader>cf", function() require("conform").format({ async = true }) end, desc = "Code Format", },
+            { "<leader>lF", function() require("conform").format({ async = true }) end, desc = "Formatter format", },
         },
         opts = {
             notify_on_error = true,
@@ -18,11 +18,8 @@ return {
                 json = { "prettierd" },
                 markdown = { "prettierd" },
             },
-            default_format_opts = { lsp_format = "fallback", },
-            format_on_save = {
-                timeout_ms = 500,
-                lsp_format = "fallback",
-            },
+            default_format_opts = { lsp_format = "fallback" },
+            format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
         },
     },
 }

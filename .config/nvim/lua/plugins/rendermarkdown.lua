@@ -7,9 +7,11 @@ return {
         },
         ft = { "markdown" },
         keys = {
-            { "<leader>m", "<cmd>RenderMarkdown toggle<cr>", desc = "Markdown Render" },
+            { "<leader>mr", function() require("render-markdown").toggle() end,  desc = "Markdown render toggle" },
+            { "<leader>mp", function() require("render-markdown").preview() end, desc = "Markdown preview toggle" },
         },
         opts = {
+            file_types = { "markdown", "quarto", "help" },
             heading = {
                 icons = { " 󰼏 ", " 󰎨 ", " 󰼑 ", " 󰎲 ", " 󰼓 ", " 󰎴 " },
                 width = "block",
@@ -26,11 +28,12 @@ return {
                 language_icon = true,
                 language_name = true,
             },
-            pipe_table = { border = { "╭", "┬", "╮", "├", "┼", "┤", "╰", "┴", "╯", "│", "─" }, },
-            dash = { width = 100, },
+            sign = { enabled = false },
+            pipe_table = { preset = "round" },
+            dash = { width = 100 },
             anti_conceal = { disabled_modes = { "n" }, },
             win_options = { concealcursor = { rendered = "nvc" } },
-            completions = { blink = { enabled = true }, lsp = { enabled = true }, },
+            completions = { blink = { enabled = true }, lsp = { enabled = true } },
         },
     },
 }

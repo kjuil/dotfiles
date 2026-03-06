@@ -3,7 +3,7 @@ return {
         "folke/which-key.nvim",
         event = "VeryLazy",
         keys = {
-            { "<leader>?", "<CMD>WhichKey<CR>", desc = "Keymaps", },
+            { "<leader>?", function() require("which-key").show({ global = false }) end, desc = "Local Keymaps", },
         },
         opts = {
             preset = "helix",
@@ -17,6 +17,7 @@ return {
                     { "<leader>f", group = "Find" },
                     { "<leader>g", group = "Git" },
                     { "<leader>l", group = "Lsp" },
+                    { "<leader>m", group = "Markdown" },
                     { "<leader>t", group = "Test" },
                     { "g",         group = "Goto" },
                 },

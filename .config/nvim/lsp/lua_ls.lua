@@ -15,7 +15,7 @@ return {
         Lua = {
             diagnostics = { globals = { "vim" } },
             codeLens = { enable = true },
-            hint = { enable = true, semicolon = 'Disable' },
+            hint = { enable = true, semicolon = "Disable" },
         },
     },
 }
