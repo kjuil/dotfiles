@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export EDITOR="nvim"
+export VISUAL=$EDITOR
+export GIT_EDITOR=$EDITOR
+export HISTSIZE=1000
+export HISTFILESIZE=2000
+export HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+

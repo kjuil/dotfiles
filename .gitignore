@@ -1,3 +1,6 @@
 *.log
 .config/nvim/lazy-lock.json
 .config/tmux/plugins/
+.config/yazi/package.toml
+.config/yazi/plugins/
+.config/yazi/flavors/
