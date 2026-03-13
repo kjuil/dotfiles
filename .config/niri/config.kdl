@@ -124,7 +124,9 @@ layout {
 spawn-at-startup "fcitx5"
 spawn-at-startup "qs" "-c" "noctalia-shell"
 
-hotkey-overlay { skip-at-startup }
+hotkey-overlay {
+    skip-at-startup
+}
 
 prefer-no-csd
 
