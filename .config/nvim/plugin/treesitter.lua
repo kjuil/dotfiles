@@ -1,0 +1,10 @@
+-- vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
+--
+-- require("nvim-treesitter.configs").setup({
+--     ensure_installed = { "lua", "c", "cpp" },
+--     ignore_install = {},
+--     sync_install = true,
+--     auto_install = true,
+--     highlight = { enable = true },
+--     indent = { enable = true },
+-- })

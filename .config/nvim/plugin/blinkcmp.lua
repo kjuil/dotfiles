@@ -1,11 +1,14 @@
-return {
-    {
-        "saghen/blink.cmp",
-        version = "*",
-        dependencies = { "rafamadriz/friendly-snippets" },
-        event = { "InsertEnter", "CmdlineEnter" },
-        opts = {
-            keymap = { preset = "super-tab", },
+vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
+    group = vim.api.nvim_create_augroup("BlinkcmpSetup", { clear = true }),
+    once = true,
+    callback = function()
+        vim.pack.add({
+            "https://github.com/saghen/blink.cmp",
+            "https://github.com/rafamadriz/friendly-snippets"
+        }, { load = false })
+
+        require("blink.cmp").setup({
+            keymap = { preset = "super-tab" },
             completion = {
                 menu = { border = "rounded", auto_show = true, scrollbar = false },
                 documentation = {
@@ -28,6 +31,6 @@ return {
                 default = { "path", "snippets", "buffer", "lsp" },
             },
             fuzzy = { implementation = "lua" },
-        },
-    },
-}
+        })
+    end
+})
