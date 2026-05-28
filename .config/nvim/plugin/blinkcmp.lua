@@ -3,9 +3,9 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
     once = true,
     callback = function()
         vim.pack.add({
-            "https://github.com/saghen/blink.cmp",
+            { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") },
             "https://github.com/rafamadriz/friendly-snippets"
-        }, { load = false })
+        })
 
         require("blink.cmp").setup({
             keymap = { preset = "super-tab" },
@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
             sources = {
                 default = { "path", "snippets", "buffer", "lsp" },
             },
-            fuzzy = { implementation = "lua" },
+            fuzzy = { implementation = "prefer_rust_with_warning" },
         })
     end
 })

@@ -1,7 +1,6 @@
 vim.pack.add({ "https://github.com/goolord/alpha-nvim" })
 
 local dashboard = require("alpha.themes.dashboard")
-local alpha = require("alpha")
 
 dashboard.section.header.val = {
     "                                                                       ",
@@ -28,4 +27,4 @@ dashboard.section.footer.val = {
     " ",
 }
 
-alpha.setup(dashboard.opts)
+require("alpha").setup(dashboard.opts)

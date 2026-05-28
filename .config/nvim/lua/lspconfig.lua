@@ -1,5 +1,3 @@
-vim.lsp.enable({ "lua_ls", "clangd", "basedpyright" })
-
 vim.diagnostic.config({
     severity_sort = true,
     float = { border = "rounded", source = "if_many" },
