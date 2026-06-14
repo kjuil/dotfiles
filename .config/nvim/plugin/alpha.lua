@@ -23,8 +23,23 @@ dashboard.section.buttons.val = {
     dashboard.button("q", "󰿅  > Exit", "<CMD>qa<CR>"),
 }
 
-dashboard.section.footer.val = {
-    " ",
+dashboard.section.footer.val = function()
+    local version = vim.version()
+    local datetime_info = " " .. os.date("%m-%d-%Y") .. "   " .. os.date("%H:%M:%S")
+    local plugins_info = "   Plugins " .. #vim.pack.get(nil, { info = false })
+    local version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
+
+    return datetime_info .. plugins_info .. version_info
+end
+
+dashboard.opts.layout = {
+    { type = "padding", val = 2 },
+    dashboard.section.header,
+    { type = "padding", val = 2 },
+    dashboard.section.buttons,
+    { type = "padding", val = 2 },
+    dashboard.section.footer,
+    { type = "padding", val = 2 },
 }
 
 require("alpha").setup(dashboard.opts)

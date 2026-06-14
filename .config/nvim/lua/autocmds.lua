@@ -14,3 +14,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         end
     end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "Disable auto comment in the next line and preline",
+    pattern = "*",
+    callback = function()
+        vim.opt.formatoptions:remove("ro")
+    end,
+})
