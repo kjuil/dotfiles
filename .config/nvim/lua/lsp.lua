@@ -3,6 +3,7 @@ vim.diagnostic.config({
     float = { border = "rounded", source = "if_many" },
     underline = { severity = vim.diagnostic.severity.ERROR },
     virtual_text = { spacing = 4, source = "if_many", prefix = "●" },
+    virtual_lines = false,
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = " ",

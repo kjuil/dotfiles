@@ -3,9 +3,9 @@ vim.opt_local.linebreak = true
 
 vim.lsp.enable("marksman")
 
-vim.pack.add({ "https://github.com/MeanderingProgrammer/render-markdown.nvim" })
-
 require("nvim-treesitter").install({ "markdown" })
+
+vim.pack.add({ "https://github.com/MeanderingProgrammer/render-markdown.nvim" })
 
 require("render-markdown").setup({
     file_types = { "markdown", "quarto", "help" },

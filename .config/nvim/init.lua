@@ -1,5 +1,5 @@
 require("options")
 require("keymaps")
 require("autocmds")
-require("lspconfig")
+require("lsp")
 require("fold")
