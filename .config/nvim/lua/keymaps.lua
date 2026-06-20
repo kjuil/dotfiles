@@ -23,3 +23,7 @@ vim.keymap.set("n", "<C-t>", "<CMD>" .. math.floor(vim.o.lines * 0.3) .. "split 
     { desc = "Termianl toggle" })
 vim.keymap.set("t", "<C-t>", "<C-\\><C-N><CMD>bdelete!<CR>", { desc = "Termianl toggle" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
+
+vim.keymap.set("n", "<leader>pu", vim.pack.update(), { desc = "Plugins update" })
+vim.keymap.set("n", "<leader>pU", vim.pack.update(nil, { force = true }), { desc = "Plugins update(force)" })
+vim.keymap.set("n", "<leader>pl", vim.pack.update(nil, { offline = true }), { desc = "Plugins lists" })
