@@ -6,15 +6,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-    desc = "Format on save",
-    group = vim.api.nvim_create_augroup("format-files", { clear = true }),
-    callback = function()
-        if vim.lsp.buf_is_attached then
-            vim.lsp.buf.format()
-        end
-    end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     desc = "Format on save",
+--     group = vim.api.nvim_create_augroup("format-files", { clear = true }),
+--     callback = function()
+--         if vim.lsp.buf_is_attached then
+--             vim.lsp.buf.format()
+--         end
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd("FileType", {
     desc = "Disable auto comment in the next line and preline",

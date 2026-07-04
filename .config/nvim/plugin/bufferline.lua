@@ -2,7 +2,10 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
     group = vim.api.nvim_create_augroup("BufferlineSetup", { clear = true }),
     once = true,
     callback = function()
-        vim.pack.add({ "https://github.com/akinsho/bufferline.nvim" })
+        vim.pack.add({
+            { src = "https://github.com/akinsho/bufferline.nvim" },
+            "https://github.com/nvim-tree/nvim-web-devicons"
+        })
 
         require("bufferline").setup({
             options = {
