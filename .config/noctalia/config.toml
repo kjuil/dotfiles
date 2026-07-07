@@ -1,0 +1,109 @@
+[bar.default]
+capsule = true
+center = [ "clock", "theme_mode" ]
+end = [ "tray", "notifications", "network", "bluetooth", "volume", "brightness", "battery", "session" ]
+margin_edge = 5
+margin_ends = 10
+start = [ "control-center", "workspaces", "launcher", "media" ]
+
+[control_center]
+width = 900
+
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[location]
+address = "武汉"
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@winit" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 854.0
+    cy = 948.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@winit"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 629.0
+    cy = 1452.0
+    output = "winit"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
+[shell]
+niri_overview_type_to_launch_enabled = true
+polkit_agent = true
+
+    [shell.launcher]
+    categories = false
+
+    [shell.panel]
+    control_center_placement = "floating"
+
+[theme]
+builtin = "Tokyo-Night"
+community_palette = "Tokyo Night Moon"
+mode = "dark"
+source = "builtin"
+wallpaper_scheme = "m3-content"
+
+[wallpaper]
+directory = "/home/kjuil/.config/noctalia/wallpaper"
+
+    [wallpaper.default]
+    path = "/home/kjuil/.config/noctalia/wallpaper/wallpaper.jpg"
+
+    [wallpaper.last]
+    path = "/home/kjuil/.config/noctalia/wallpaper/wallpaper.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/kjuil/.config/noctalia/wallpaper/wallpaper.jpg"
+
+[widget.control-center]
+custom_image = "/usr/share/noctalia/assets/images/distros/arch.svg"
+
+[widget.network]
+show_label = false

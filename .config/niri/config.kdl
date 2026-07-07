@@ -121,8 +121,8 @@ layout {
 
 // spawn-at-startup "waybar"
 // spawn-at-startup "mako"
+spawn-at-startup "noctalia"
 spawn-at-startup "fcitx5"
-spawn-at-startup "qs" "-c" "noctalia-shell"
 
 hotkey-overlay {
     skip-at-startup
@@ -171,8 +171,8 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
-    Mod+Space hotkey-overlay-title="Run an Application" { spawn "fuzzel"; }
-    Mod+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "qs -c NoctaliaShell ipc call sessionMenu lockAndSuspend"; }
+    Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg noctalia msg lockscreen-widgets-toggle-edit"; }
 
     Mod+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
