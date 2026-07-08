@@ -80,7 +80,12 @@ layout {
         // fixed 1920
     }
 
-    // preset-window-heights { }
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667  
+        proportion 0.99999
+    }
 
     default-column-width { proportion 0.5; }
 
@@ -151,20 +156,27 @@ gestures {
 }
 
 window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
-window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
     draw-border-with-background false
     // opacity 0.99
+}
+
+// window-rule {
+//     match app-id=r#"^org\.wezfurlong\.wezterm$"#
+//     default-column-width {}
+// }
+//
+// window-rule {
+//     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+//     open-floating true
+// }
+
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
 }
 
 binds {
@@ -172,7 +184,6 @@ binds {
 
     Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
     Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "noctalia msg panel-toggle launcher"; }
-    Mod+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg noctalia msg lockscreen-widgets-toggle-edit"; }
 
     Mod+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 

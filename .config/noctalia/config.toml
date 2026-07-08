@@ -1,5 +1,7 @@
 [bar.default]
+background_opacity = 0.69999998435378075
 capsule = true
+capsule_opacity = 0.91999997943639755
 center = [ "clock", "theme_mode" ]
 end = [ "tray", "notifications", "network", "bluetooth", "volume", "brightness", "battery", "session" ]
 margin_edge = 5
@@ -74,6 +76,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@winit" ]
         show_password_hint = true
 
 [shell]
+font_family = "LXGW WenKai Medium"
 niri_overview_type_to_launch_enabled = true
 polkit_agent = true
 
@@ -82,6 +85,9 @@ polkit_agent = true
 
     [shell.panel]
     control_center_placement = "floating"
+    session_placement = "floating"
+    transparency_mode = "soft"
+    wallpaper_placement = "floating"
 
 [theme]
 builtin = "Tokyo-Night"
@@ -89,6 +95,10 @@ community_palette = "Tokyo Night Moon"
 mode = "dark"
 source = "builtin"
 wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    enable_builtin_templates = false
+    enable_community_templates = false
 
 [wallpaper]
 directory = "/home/kjuil/.config/noctalia/wallpaper"
@@ -101,6 +111,9 @@ directory = "/home/kjuil/.config/noctalia/wallpaper"
 
     [wallpaper.monitors.eDP-1]
     path = "/home/kjuil/.config/noctalia/wallpaper/wallpaper.jpg"
+
+[weather]
+refresh_minutes = 60
 
 [widget.control-center]
 custom_image = "/usr/share/noctalia/assets/images/distros/arch.svg"
