@@ -8,6 +8,10 @@ target/
 venv/
 .env
 
+.config/aria2/aria2.log
+.config/aria2/aria2.session
+.config/mihomo/
+!.config/mihomo/config.yaml
 .config/nvim/nvim-pack-lock.json
 .config/tmux/plugins/
 

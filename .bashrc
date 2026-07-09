@@ -1,6 +1,6 @@
 ### Tool
 [ -f "/etc/bash_completion" ] && source "/etc/bash_completion"
-
+eval "$(fzf --bash)"
 
 
 ### Env
@@ -17,8 +17,10 @@ shopt -s histappend
 
 ### Alias
 # basic
-alias ll="ls -lhF"
-alias la="ls -alhF"
+alias ll="ls -lhF --color=auto"
+alias la="ls -alhF --color=auto"
+alias ..="cd .."
+alias ...="cd ../.."
 alias mv="mv -i"
 alias cp="cp -i"
 alias c="clear"
