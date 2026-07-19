@@ -1,3 +1,6 @@
+[backdrop]
+enabled = true
+
 [bar.default]
 background_opacity = 0.69999998435378075
 capsule = true
@@ -6,12 +9,36 @@ center = [ "clock", "theme_mode" ]
 end = [ "tray", "notifications", "network", "bluetooth", "volume", "brightness", "battery", "session" ]
 margin_edge = 5
 margin_ends = 10
-start = [ "control-center", "workspaces", "launcher", "media" ]
+start = [ "control-center", "workspaces", "active_window", "media" ]
+
+[battery]
+warning_threshold = 30
 
 [control_center]
-width = 900
+hidden_tabs = [ "system", "screen-time" ]
+sidebar_section = "none"
+width = 1000
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "clipboard"
 
 [desktop_widgets]
+enabled = false
 schema_version = 2
 widget_order = []
 
@@ -22,8 +49,30 @@ widget_order = []
 
     [desktop_widgets.widget]
 
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+pre_action_fade_seconds = 10
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
 [location]
 address = "武汉"
+
+[lockscreen]
+fingerprint = false
 
 [lockscreen_widgets]
 enabled = false
@@ -48,6 +97,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@winit" ]
         background_color = "surface_variant"
         background_opacity = 0.88
         background_radius = 12.0
+        center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
         show_caps_lock = true
@@ -68,6 +118,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@winit" ]
         background_color = "surface_variant"
         background_opacity = 0.88
         background_radius = 12.0
+        center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
         show_caps_lock = true
@@ -77,7 +128,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@winit" ]
 
 [shell]
 font_family = "LXGW WenKai Medium"
-niri_overview_type_to_launch_enabled = true
+niri_overview_type_to_launch_enabled = false
 polkit_agent = true
 
     [shell.launcher]
@@ -88,6 +139,18 @@ polkit_agent = true
     session_placement = "floating"
     transparency_mode = "soft"
     wallpaper_placement = "floating"
+    wallpaper_position = "center"
+
+    [shell.screenshot]
+    confirm_region = true
+    directory = "/home/kjuil/Pictures/Screenshots"
+    filename_pattern = "screenshot_%Y%m%d_%H%M%S"
+
+    [shell.session]
+    grid = true
+
+[system.monitor]
+enabled = false
 
 [theme]
 builtin = "Tokyo-Night"
@@ -102,6 +165,7 @@ wallpaper_scheme = "m3-content"
 
 [wallpaper]
 directory = "/home/kjuil/.config/noctalia/wallpaper"
+transition_on_startup = true
 
     [wallpaper.default]
     path = "/home/kjuil/.config/noctalia/wallpaper/wallpaper.jpg"
@@ -113,10 +177,27 @@ directory = "/home/kjuil/.config/noctalia/wallpaper"
     path = "/home/kjuil/.config/noctalia/wallpaper/wallpaper.jpg"
 
 [weather]
+effects = false
 refresh_minutes = 60
 
+[widget.active_window]
+max_length = 150
+title_scroll = "on_hover"
+
+[widget.clock]
+format = "{:%a, %b %d, %H:%M}"
+
 [widget.control-center]
-custom_image = "/usr/share/noctalia/assets/images/distros/arch.svg"
+custom_image = ""
+
+[widget.media]
+hide_when_no_media = true
+max_length = 150
+title_scroll = "on_hover"
 
 [widget.network]
 show_label = false
+
+[widget.tray]
+detached_panel = true
+drawer = true
