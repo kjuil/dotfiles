@@ -18,7 +18,8 @@ switch-events {
 
 binds {
     Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "noctalia msg panel-toggle launcher"; }
-    Mod+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock-and-suspend"; }
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock"; }
+    Mod+Alt+Shift+L hotkey-overlay-title="Lock and Suspend the Screen" { spawn-sh "noctalia msg session lock-and-suspend"; }
     Mod+Alt+S hotkey-overlay-title="Noctalia Region screenshot" { spawn-sh "noctalia msg screenshot-region"; }
     Mod+Alt+Shift+S hotkey-overlay-title="Noctalia Fullscreen screenshot" { spawn-sh "noctalia msg screenshot-fullscreen"; }
 }

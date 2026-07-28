@@ -95,7 +95,7 @@ layout {
     gaps 10
     center-focused-column "never"
     always-center-single-column
-    empty-workspace-above-first
+    // empty-workspace-above-first
     default-column-display "normal"
 
     preset-column-widths {
@@ -206,8 +206,8 @@ environment {
 }
 
 cursor {
-    xcursor-theme "breeze_cursors"
-    xcursor-size 48
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 28
 
     hide-when-typing
     hide-after-inactive-ms 3000
@@ -247,18 +247,13 @@ window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
     draw-border-with-background false
-    // opacity 0.99
+    // opacity 0.92
 }
 
-// window-rule {
-//     match app-id=r#"^org\.wezfurlong\.wezterm$"#
-//     default-column-width {}
-// }
-//
-// window-rule {
-//     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-//     open-floating true
-// }
+window-rule {
+    match app-id=r#"^(org\.mozilla\.firefox|chromium|helium)$"#
+    open-maximized true
+}
 
 animations {
     // off
