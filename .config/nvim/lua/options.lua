@@ -19,6 +19,7 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.list = true
 vim.o.listchars = "space:·,tab:-->"
+vim.o.fillchars = "eob: ,fold: ,diff:╱"
 vim.o.signcolumn = "yes"
 vim.o.colorcolumn = "120"
 vim.o.showmode = false

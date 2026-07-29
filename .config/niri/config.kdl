@@ -198,9 +198,9 @@ environment {
     QT_QPA_PLATFORM "wayland"
     QT_QPA_PLATFORMTHEME "qt6ct"
     XMODIFIERS "@im=fcitx"
-    QT_IM_MODULE "fxitx"
-    QT_IM_MODULES "wayland;fxitx"
-    GTK_IM_MODULE null
+    QT_IM_MODULE "fcitx"
+    QT_IM_MODULES "wayland;fcitx"
+    GTK_IM_MODULE "fcitx"
     SDL_IM_MODULE null
     GLFW_IM_MODULE null
 }

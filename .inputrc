@@ -1,21 +1,29 @@
-# 忽略大小写补全
-set completion-ignore-case on
-
 # 按 Tab 补全时显示所有可能选项
 set show-all-if-ambiguous on
+
+# 忽略大小写补全
+set completion-ignore-case on
 
 # 补全时斜杠自动转义（方便路径补全）
 set mark-directories on
 set mark-symlinked-directories on
 
+# 补全列表按文件类型着色（使用 LS_COLORS）
+set colored-stats on
+
 # 增加历史记录保存数量
 set history-size 5000
 
-# 允许输入 Unicode 字符（如中文）
+# 关闭行数限制的第八位输入
 set input-meta on
 set output-meta on
+
+# 允许UTF-8 输入（如中文）
 set convert-meta off
 
 # 禁用终端铃声
 set bell-style none
 set enable-bracketed-paste off
+
+# 将粘贴的多行文本视为单行（避免意外执行）
+set enable-bracketed-paste on
