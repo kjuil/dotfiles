@@ -17,7 +17,7 @@ warning_threshold = 30
 [control_center]
 hidden_tabs = [ "system", "screen-time" ]
 sidebar_section = "none"
-width = 1000
+width = 900
 
     [[control_center.shortcuts]]
     type = "wifi"
@@ -69,7 +69,8 @@ pre_action_fade_seconds = 10
     timeout = 660.0
 
 [location]
-address = "武汉"
+address = ""
+auto_locate = true
 
 [lockscreen]
 fingerprint = false
@@ -125,7 +126,14 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@winit" ]
         show_login_button = true
 
 [notification]
+background_opacity = 0.99999997764825821
 position = "bottom_right"
+
+[osd.kinds]
+brightness = false
+keyboard_layout = false
+volume = false
+volume_output = false
 
 [plugin_settings."noctalia/wallhaven"]
 api_key = "wCATnVyoMvmqSYNTBnDg3lclldRgjEtP"
@@ -134,6 +142,7 @@ browser_position = "center"
 download_dir = "~/.config/noctalia/wallpaper/"
 
 [plugins]
+auto_update = true
 enabled = [ "noctalia/wallhaven" ]
 
     [[plugins.source]]
@@ -156,6 +165,9 @@ polkit_agent = true
 
     [shell.launcher]
     categories = false
+
+        [shell.launcher.providers.calculator]
+        global = false
 
     [shell.panel]
     control_center_placement = "floating"
@@ -190,6 +202,9 @@ wallpaper_scheme = "m3-content"
 [wallpaper]
 directory = "/home/kjuil/.config/noctalia/wallpaper"
 transition_on_startup = true
+
+    [wallpaper.automation]
+    recursive = false
 
     [wallpaper.default]
     path = "/home/kjuil/.config/noctalia/wallpaper/wallpaper.jpg"

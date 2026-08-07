@@ -8,13 +8,13 @@ ipv6: false
 find-process-mode: strict
 unified-delay: true
 tcp-concurrent: true
-global-client-fingerprint: chrome
 
 ## Web面板
 external-controller: 127.0.0.1:9090
-# secret: "mihomo"
 external-ui: ui
-external-ui-url: "https://gh-proxy.com/https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
+external-ui-name: zashboard
+external-ui-url: "https://gh-proxy.org/https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
+# secret: "mihomo"
 
 geox-url:
   geoip:   "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
@@ -88,7 +88,7 @@ tun:
     - "any:53"
     - "tcp://any:53"
   strict-route: true
-  mtu: 9000
+  mtu: 1500
   # 如果有使用zerotier或者headscale等，需要自己配置排除自己的网段
   # route-exclude-address: ["192.168.110.0/24"]
 
@@ -103,13 +103,6 @@ proxy-providers:
     path: './proxy_provider/providers-1.yaml'
     override:
       additional-prefix: "[A] " 
-  Node-2:
-    url: '替换订阅链接2'
-    <<: *NodeParam
-    path: './proxy_provider/providers-2.yaml'
-    override:
-      additional-prefix: "[B] "
-  # 如果还有其他订阅，可以继续添加
 
 # 单节点(如果你是自建节点，那么请直接在下面的proxies里添加节点配置，具体节点写法请参考 mihomo 官方文档)
 # proxies:
