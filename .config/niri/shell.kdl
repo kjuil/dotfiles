@@ -1,3 +1,4 @@
+// Noctalia
 spawn-at-startup "noctalia"
 
 window-rule {

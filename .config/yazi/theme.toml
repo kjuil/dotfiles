@@ -5,6 +5,9 @@
 [mgr]
 cwd = { fg = "#94e2d5" }
 
+hovered         = { fg = "#1e1e2e", bg = "#94e2d5" }
+preview_hovered = { fg = "#1e1e2e", bg = "#cdd6f4" }
+
 # Find
 find_keyword  = { fg = "#f9e2af", bold = true, italic = true, underline = true }
 find_position = { fg = "#f5c2e7", bg = "reset", bold = true, italic = true }
@@ -23,6 +26,8 @@ count_selected = { fg = "#1e1e2e", bg = "#f9e2af" }
 # Border
 border_symbol = "│"
 border_style  = { fg = "#7f849c" }
+
+syntect_theme = "~/.config/yazi/tmtheme.xml"
 
 # : }}}
 
@@ -57,6 +62,8 @@ unset_alt  = { fg = "#f2cdcd", bg = "#313244" }
 # : Status bar {{{
 
 [status]
+separator_close = ""
+separator_open  = ""
 # Permissions
 perm_sep   = { fg = "#7f849c" }
 perm_type  = { fg = "#89b4fa" }

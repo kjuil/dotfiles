@@ -23,8 +23,14 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "<filetype>" },
+    pattern = { "*" },
     callback = function()
-        vim.treesitter.start()
+        local ok = pcall(vim.treesitter.start)
+        if not ok then
+            return
+        end
+        vim.wo[0].foldmethod = "expr"
+        vim.wo[0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.bo[0].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end,
 })

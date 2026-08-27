@@ -1,3 +1,4 @@
+---@type vim.lsp.Config
 return {
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
@@ -13,9 +14,18 @@ return {
     },
     settings = {
         Lua = {
-            diagnostics = { globals = { "vim" } },
             codeLens = { enable = true },
             hint = { enable = true, semicolon = "Disable" },
+            completion = { callSnippet = "Replace" },
+            runtime = {
+                version = "LuaJIT",
+                path = { "lua/?.lua", "lua/?/init.lua" },
+            },
+            workspace = {
+                checkThirdParty = false,
+                library = { vim.env.VIMRUNTIME, "${3rd}/luv/library" },
+            },
+
         },
     },
 }

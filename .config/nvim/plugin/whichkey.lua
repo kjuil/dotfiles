@@ -14,8 +14,10 @@ vim.schedule(function()
                 { "<leader>g", group = "Git" },
                 { "<leader>l", group = "Lsp" },
                 { "<leader>m", group = "Markdown" },
+                { "<leader>p", group = "Pack" },
                 { "<leader>t", group = "Test" },
                 { "g",         group = "Goto" },
+                { "z",         group = "Fold" },
             },
         },
     })

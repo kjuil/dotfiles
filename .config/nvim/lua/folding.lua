@@ -2,9 +2,7 @@ vim.o.foldcolumn = "0"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
-vim.o.foldmethod = "expr"
 vim.o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
-vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 local function fold_virt_text(result, start_text, lnum)
     local text = ""

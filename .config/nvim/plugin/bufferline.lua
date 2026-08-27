@@ -41,6 +41,8 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 
         vim.keymap.set("n", "<Tab>", "<CMD>BufferLineCycleNext<CR>", { desc = "Buffer next" })
         vim.keymap.set("n", "<S-Tab>", "<CMD>BufferLineCyclePrev<CR>", { desc = "Buffer prev" })
+        vim.keymap.set("n", "<leader>bn", "<CMD>BufferLineCycleNext<CR>", { desc = "Buffer next" })
+        vim.keymap.set("n", "<leader>bp", "<CMD>BufferLineCyclePrev<CR>", { desc = "Buffer prev" })
         vim.keymap.set("n", "<leader>bd", "<CMD>bdelete<CR>", { desc = "Buffer close" })
         vim.keymap.set("n", "<leader>bo", "<CMD>BufferLineCloseOthers<CR>", { desc = "Buffer close others" })
         vim.keymap.set("n", "<leader>bc", "<CMD>BufferLinePickClose<CR>", { desc = "Buffer close select" })
