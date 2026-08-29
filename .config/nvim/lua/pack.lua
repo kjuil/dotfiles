@@ -1,8 +1,6 @@
 -- vim.pack keymaps  (<leader>p = pack)
 vim.keymap.set("n", "<leader>pp", "<CMD>Pack<CR>", { desc = "Pack UI" })
 vim.keymap.set("n", "<leader>pu", "<CMD>lua vim.pack.update()<CR>", { desc = "Pack Update All" })
-vim.keymap.set("n", "<leader>pU", "<CMD>lua vim.pack.update(nil, { force = true })<CR>",
-    { desc = "Pack Update All(force)" })
 vim.keymap.set("n", "<leader>pl", "<CMD>lua vim.pack.update(nil, { offline = true })<CR>", { desc = "Pack List Plugins" })
 vim.keymap.set("n", "<leader>pd", function()
     vim.ui.input({ prompt = "Plugin name to delete: " }, function(input)
@@ -187,11 +185,6 @@ local function open()
         end
     end, o)
 
-    vim.keymap.set("n", "U", function()
-        close()
-        vim.pack.update()
-    end, o)
-
     vim.keymap.set("n", "u", function()
         local name = cursor_plugin()
         if not name then
@@ -199,6 +192,11 @@ local function open()
         end
         close()
         vim.pack.update({ name })
+    end, o)
+
+    vim.keymap.set("n", "U", function()
+        close()
+        vim.pack.update()
     end, o)
 
     vim.keymap.set("n", "D", function()

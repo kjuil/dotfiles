@@ -19,7 +19,7 @@ dashboard.section.buttons.val = {
     dashboard.button("n", "󰈙  > New", "<CMD>enew<CR>"),
     dashboard.button("f", "  > Search", "<CMD>Telescope find_files<CR>"),
     dashboard.button("r", "  > Recent", "<CMD>Telescope oldfiles<CR>"),
-    dashboard.button("o", "  > Options", "<CMD>e " .. vim.fn.stdpath("config") .. "/init.lua<CR>"),
+    dashboard.button("o", "  > Options", "<CMD>lcd " .. vim.fn.stdpath("config") .. "| e ./init.lua<CR>"),
     dashboard.button("q", "󰿅  > Exit", "<CMD>qa<CR>"),
 }
 

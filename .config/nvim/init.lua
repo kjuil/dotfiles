@@ -1,6 +1,7 @@
 require("options")
 require("keymaps")
 require("autocmds")
-require("lsp")
 require("folding")
+require("lsp")
 require("pack")
+require("ui")

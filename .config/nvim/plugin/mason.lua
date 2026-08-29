@@ -12,5 +12,5 @@ vim.schedule(function()
         },
     })
 
-    vim.keymap.set("n", "<leader>lm", "<CMD>Mason<CR>", { desc = "Mason" })
+    vim.keymap.set("n", "<leader>m", "<CMD>Mason<CR>", { desc = "Mason" })
 end)

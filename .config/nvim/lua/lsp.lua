@@ -20,9 +20,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "grd", vim.lsp.buf.definition, { desc = "Goto definition" })
         vim.keymap.set("n", "grD", vim.lsp.buf.declaration, { desc = "Goto declaration" })
         vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Lsp format" })
-        vim.keymap.set("n", "<leader>lds", vim.diagnostic.setloclist, { desc = "Lsp diagnostic show" })
-        vim.keymap.set("n", "<leader>ldn", vim.diagnostic.goto_next, { desc = "Lsp diagnostic next" })
-        vim.keymap.set("n", "<leader>ldp", vim.diagnostic.goto_prev, { desc = "Lsp diagnostic prev" })
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client:supports_method "textDocument/foldingRange" then
