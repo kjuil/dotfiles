@@ -63,7 +63,7 @@ local function render()
     put((" vim.pack  %d plugins  (%d loaded, %d not loaded)"):format(#plugins, #loaded, #unloaded), "PackUiHeader")
     put(" " .. ("─"):rep(w - 1), "PackUiSep")
 
-    local bar = "  [U] Update All   [u] Update   [D] Delete"
+    local bar = "  [u] Update  [U] Update All  [D] Delete"
     put(bar)
     for s, e in bar:gmatch("()%[.-%]()") do
         hl(#lines - 1, s - 1, e - 1, "PackUiButton")
