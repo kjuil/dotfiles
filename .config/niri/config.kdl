@@ -256,6 +256,11 @@ window-rule {
     open-maximized true
 }
 
+window-rule {
+    match app-id="mpv"
+    open-floating true
+}
+
 animations {
     // off
     // slowdown 3.0

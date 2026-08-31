@@ -10,7 +10,7 @@ export GIT_EDITOR=$EDITOR
 export HISTSIZE=1000
 export HISTFILESIZE=2000
 export HISTCONTROL=ignoreboth:erasedups
-export HISTTIMEFORMAT="%F %T  "
+# export HISTTIMEFORMAT="%F %T  "
 shopt -s histappend
 
 
