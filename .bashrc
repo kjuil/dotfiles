@@ -90,6 +90,8 @@ alias tls="tmux ls"
 alias trs="tmux rename-session -t"
 alias tk="tmux kill-session -t"
 
+alias ff="fastfetch"
+
 
 
 ## Functions
